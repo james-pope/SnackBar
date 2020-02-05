@@ -72,13 +72,13 @@ public class Vendor {
   public boolean makeSale() {
     boolean x = false;
     if (getStock() == 0 || getDeposit() < price) {
-      change = deposit;
+      change = getDeposit();
       deposit = 0;
       return x;
     }
     if (getStock() > 0 && getDeposit() >= price) {
       stock--;
-      change = getChange();
+      change = deposit - price;
       deposit = 0;
       x = true;
     }
@@ -92,7 +92,6 @@ public class Vendor {
    * @return number of cents in the current change (int)
    */
   public int getChange() {
-    change = 0;
-    return deposit - price;
+    return change;
   }
 }
