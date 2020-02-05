@@ -2,63 +2,61 @@
  * This class implements a vendor that sells one kind
  * of items. A vendor carries out sales transactions.
  */
-public class Vendor
-{
+public class Vendor {
   // Fields:
-  private double price;
+  private int price;
   private int stock;
-
-  public Vendor(int cost, int totalStock){
-    price  = (double)cost/100;
-    stock = totalStock;
-    
-  }
+  private int deposit;
+  private int change;
 
   /**
    * Constructs a Vendor
+   *
    * @param price the price of a single item in cents (int)
    * @param stock number of items to place in stock (int)
    */
-  ... Vendor ...
-  {
-    ...
+  public Vendor(int cost, int totalStock) {
+    price = cost;  //puts value into cents
+    stock = totalStock;
+    deposit = 0;
+    change = 0;
   }
 
   /**
    * Sets the quantity of items in stock.
+   *
    * @param qty number of items to place in stock (int)
    */
-  ... setStock ...
-  {
-    ...
+  public void setStock(int quantity) {
+    stock += quantity;
   }
 
   /**
    * Returns the number of items currently in stock.
+   *
    * @return number of items currently in stock (int)
    */
-  ... getStock ...
-  {
-    ...
+  public int getStock() {
+    return stock;
   }
 
   /**
    * Adds a specified amount (in cents) to the
    * deposited amount.
+   *
    * @param number of cents to add to the deposit (int)
    */
-  ... addMoney ...
-  {
-    ...
+  public void addMoney(int amt) {
+    deposit += amt;
   }
 
   /**
    * Returns the currently deposited amount (in cents).
+   *
    * @return number of cents in the current deposit (int)
    */
-  ... getDeposit ...
-  {
-    ...
+  public int getDeposit() {
+    return deposit;
   }
 
   /**
@@ -68,20 +66,33 @@ public class Vendor
    * and calculates and sets change and returns true;
    * otherwise refunds the whole deposit (moves it into
    * change) and returns false.
+   *
    * @return true for a successful sale, false otherwise (boolean)
    */
-  ... makeSale ...
-  {
-    ...
+  public boolean makeSale() {
+    boolean x = false;
+    if (getStock() == 0 || getDeposit() < price) {
+      change = deposit;
+      deposit = 0;
+      return x;
+    }
+    if (getStock() > 0 && getDeposit() >= price) {
+      stock--;
+      change = getChange();
+      deposit = 0;
+      x = true;
+    }
+    return x;
   }
 
   /**
    * Returns and zeroes out the amount of change (from
    * the last sale or refund).
+   *
    * @return number of cents in the current change (int)
    */
-  ... getChange ...
-  {
-    ...
+  public int getChange() {
+    change = 0;
+    return deposit - price;
   }
 }
