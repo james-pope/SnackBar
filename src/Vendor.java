@@ -3,6 +3,7 @@
  * of items. A vendor carries out sales transactions.
  */
 public class Vendor {
+  private static double totalSales;
   // Fields:
   private int price;
   private int stock;
@@ -80,6 +81,7 @@ public class Vendor {
       stock--;
       change = deposit - price;
       deposit = 0;
+      totalSales += price;
       x = true;
     }
     return x;
@@ -93,5 +95,9 @@ public class Vendor {
    */
   public int getChange() {
     return change;
+  }
+
+  public static double getTotalSales() {
+    return (double)totalSales/100;
   }
 }
