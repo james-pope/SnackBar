@@ -70,3 +70,22 @@ public class SoccerTeam {
         }
     }
 }
+/* OUTPUT
+Tournament 1
+Team 1 points: 4
+Team 2 points: 9
+Team 3 points: 8
+Team 4 points: 5
+Total games: 6
+Total goals: 36
+
+Tournament 2
+Team 1 points: 8
+Team 2 points: 17
+Team 3 points: 19
+Team 4 points: 13
+Total games: 6
+Total goals: 37
+
+
+ */
