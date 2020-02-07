@@ -2,6 +2,7 @@ public class SoccerTeam {
     private int wins;
     private int losses;
     private int ties;
+    public static int totalGames;
 
     public SoccerTeam(){
         wins = 0;
@@ -19,4 +20,5 @@ public class SoccerTeam {
         for(int i = 0; i < ties; i++) count++;
         return count;
     }
+
 }
