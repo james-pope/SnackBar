@@ -13,4 +13,10 @@ public class SoccerTeam {
         if (myScore > otherScore) wins++; other.losses++;
         if (myScore < otherScore) losses++; other.wins++;
     }
+    public int points(){
+        int count = 0;
+        for (int i =0; i <  wins; i++) count += 3;
+        for(int i = 0; i < ties; i++) count++;
+        return count;
+    }
 }
