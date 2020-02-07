@@ -17,7 +17,7 @@ public class Vendor {
    * @param stock number of items to place in stock (int)
    */
   public Vendor(int cost, int totalStock) {
-    price = cost;  //puts value into cents
+    price = cost;
     stock = totalStock;
     deposit = 0;
     change = 0;
