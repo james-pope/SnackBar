@@ -22,6 +22,11 @@ public class Complex {
         Complex sum = new Complex(a, b);
         return sum;
     }
+    public Complex add(double num){
+        double a = aVal + num;
+        Complex sum = new Complex(a, bVal);
+        return sum;
+    }
     public String toString(){
         double a = Math.round(aVal*100.0)/100.0;    //rounds decimal to hundreds place
         double b = Math.round(bVal*100.0)/100.0;
@@ -34,12 +39,23 @@ public class Complex {
         Complex product = new Complex(a, b);
         return product;
     }
+    public Complex multiply(double num){
+        double a = aVal*num;
+        double b = bVal*num;
+        Complex product = new Complex(a, b);
+        return product;
+    }
     public static void main(String [] args){
 
         Complex c1 = new Complex(16.1, 23.5);
         Complex c2 = new Complex(14.1, 17.9);
+        Complex c3 = new Complex(17.0);
+        Complex c4 = new Complex(-16.8, 17.2);
 
         System.out.println(c2 + " + " + c1 + " = " + c2.add(c1));
         System.out.println(c1 + " * " + c2 + " = " + c1.multiply(c2));
+        System.out.println(c3 + " + " + 13.9 + " = " + c3.add(13.9));
+        System.out.println(c4 + " * " + 17.6 + " = " + c4.multiply(17.6));
+
     }
 }

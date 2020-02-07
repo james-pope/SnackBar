@@ -3,6 +3,7 @@ public class SoccerTeam {
     private int losses;
     private int ties;
     public static int totalGames;
+    public static int totalGoals;
 
     public SoccerTeam(){
         wins = 0;
@@ -19,6 +20,9 @@ public class SoccerTeam {
         for (int i =0; i <  wins; i++) count += 3;
         for(int i = 0; i < ties; i++) count++;
         return count;
+    }
+    public void  reset(){
+        wins = 0; losses = 0; ties = 0;
     }
 
 }
